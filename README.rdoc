@@ -1,6 +1,26 @@
-= single_instance
+= SingleInstance
 
-Description goes here.
+SingleInstance creates a system-wide lock that prevents multiple copies of the
+same code to run at the same time.  We use it to make sure that `cron` jobs
+do not start if an earlier invocation is still running.
+
+    # in Rakefile
+    task :build_models do |t, args|
+      SingleInstance.exclusive_non_blocking(:build_models) do
+        # ...
+      end
+    end
+
+Optionally, the block can be allowed to react to the fact that another process
+is running:
+
+    SingleInstance.exclusive_non_blocking(:build_models) do |blocker|
+      if blocker
+        puts "Cannot run; pid #{blocker.pid} is running since #{blocker.started_at}"
+      else
+        # ...
+      end
+    end
 
 == Note on Patches/Pull Requests
  
@@ -15,4 +35,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 David Vrensk. See LICENSE for details.
+Copyright (c) 2010 ICE House AB. See LICENSE for details.

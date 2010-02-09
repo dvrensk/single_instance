@@ -5,9 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "single_instance"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "david@vrensk.com"
+    gem.summary = %Q{Ruby Gem that makes sure that only a single instance of a code block is running.}
+    gem.email = "dev+gemsupport@icehouse.se"
     gem.homepage = "http://github.com/icehouse/single_instance"
     gem.authors = ["David Vrensk", "Magnus Enarsson"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
