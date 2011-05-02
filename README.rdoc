@@ -22,6 +22,15 @@ is running:
       end
     end
 
+Run without a block, it creates a lock that lasts as long as the process is running:
+
+    # in Rakefile
+    task :all => [:exclusive, :this, :that, :whatever]
+    task :exclusive do
+      SingleInstance.exclusive_non_blocking(:build_models) || exit
+    end
+
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
@@ -35,4 +44,4 @@ is running:
 
 == Copyright
 
-Copyright (c) 2010 ICE House AB. See LICENSE for details.
+Copyright (c) 2010-11 ICE House AB. See LICENSE for details.

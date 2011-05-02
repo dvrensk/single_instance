@@ -42,6 +42,13 @@ class TestSingleInstance < Test::Unit::TestCase
       assert @block_1
       assert @block_2
     end
+
+    context "without a block" do
+      should "create a lock that lasts until the process terminates" do
+        assert SingleInstance.exclusive_non_blocking(:blockless)
+        assert ! SingleInstance.exclusive_non_blocking(:blockless)
+      end
+    end
   end
 
 end
