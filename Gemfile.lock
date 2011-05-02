@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    single_instance (0.1.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    thoughtbot-shoulda (2.11.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (>= 1.0.0)
+  single_instance!
+  thoughtbot-shoulda

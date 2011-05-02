@@ -1,21 +1,5 @@
-require 'rubygems'
-require 'rake'
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "single_instance"
-    gem.summary = %Q{Ruby Gem that makes sure that only a single instance of a code block is running.}
-    gem.email = "dev+gemsupport@icehouse.se"
-    gem.homepage = "http://github.com/icehouse/single_instance"
-    gem.authors = ["David Vrensk", "Magnus Enarsson"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
-end
+require 'bundler'
+Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
@@ -37,8 +21,8 @@ rescue LoadError
   end
 end
 
-task :test => :check_dependencies
-
+# task :test => :check_dependencies
+# 
 task :default => :test
 
 require 'rake/rdoctask'
