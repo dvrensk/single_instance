@@ -1,0 +1,13 @@
+#! /usr/bin/env ruby
+$: << File.join(File.dirname(__FILE__), '..', 'lib')
+require 'single_instance'
+
+block_on = File.basename(ARGV[0])
+
+SingleInstance.exclusive_non_blocking(block_on) do |blocker|
+  if blocker
+    exit 1
+  else
+    exec *ARGV
+  end
+end

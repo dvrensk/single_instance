@@ -30,6 +30,11 @@ Run without a block, it creates a lock that lasts as long as the process is runn
       SingleInstance.exclusive_non_blocking(:build_models) || exit
     end
 
+There is also a simple binary (called `single_instance`) that you can use to wrap
+non-Ruby tasks:
+
+    # in crontab
+    */10 * * * * single_instance /usr/local/bin/long-running-task
 
 == Note on Patches/Pull Requests
  
