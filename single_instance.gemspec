@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.version     = SingleInstance::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["David Vrensk", "Magnus Enarsson"]
-  s.email       = ["dev+gemsupport@icehouse.se"]
-  s.homepage    = "http://github.com/icehouse/single_instance"
+  s.email       = ["rubygems+single_instance@vrensk.com"]
+  s.homepage    = "http://github.com/dvrensk/single_instance"
   s.summary     = %Q{Ruby Gem that makes sure that only a single instance of a code block or process is running.}
   s.description = "SingleInstance uses an exclusive file lock to allow or block execution of code."
 
